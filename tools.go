@@ -15,7 +15,7 @@ type JsonResponse struct {
 	Data    interface{} `json:"data,omitempty"`
 }
 
-func (t *Tools) ReadJson(rw http.ResponseWriter, r http.Request, data interface{}) error {
+func (t *Tools) ReadJson(rw http.ResponseWriter, r *http.Request, data interface{}) error {
 	maxBytes := 1048576
 	http.MaxBytesReader(rw, r.Body, int64(maxBytes))
 
